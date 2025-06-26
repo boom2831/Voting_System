@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div id="adminLoginPage">
+        <h1>Admin Login</h1>
+        <form id="adminLoginForm" action="/admin_login" method="post">
+            <label for="adminUsername">Username:</label>
+            <input type="text" id="adminUsername" name="adminUsername" required><br><br>
+            
+            <label for="adminPassword">Password:</label>
+            <input type="password" id="adminPassword" name="adminPassword" required><br><br>
+            
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+
+            if(status === 'false'){
+                alert("Invalid Credentials! Please try again.");
+            }
+            else if(status === 'error'){
+                alert("An error occurred! Please try again.");
+            }
+            window.history.replaceState({},'',window.location.pathname);
+    });
+    </script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

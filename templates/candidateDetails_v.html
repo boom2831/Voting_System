@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote for Candidate</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/images/lalala.avif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .vote-form {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .vote-button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .vote-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vote for Candidate</h1>
+    <form class="vote-form" id="voteForm" method="post" action="/cast_vote">
+        <label for="voterId"> Voter ID: </label>
+        <input type="text" id="voterId" name="voterId" required><br><br>
+        <label for="candidate">Select a candidate:</label>
+        <select id="candidate" name="candidate_id" required>
+            <option value="" disabled selected>Select a candidate</option>
+            <option value="1">Party A</option>
+            <option value="2">Party B</option>
+            <option value="3">Party C</option>
+            <option value="4">Party D</option>
+        </select>
+        <button type="submit" class="vote-button">Vote</button>
+    </form>
+
+    <script>
+        /*async function submitVote(event) {
+            event.preventDefault();
+            const candidateId = document.getElementById('candidate').value;
+
+            try {
+                const response = await fetch('/cast_vote', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        candidate_id: candidateId
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (response.ok) {
+                    alert('Vote cast successfully!');
+                    document.getElementById('voteForm').reset();
+                } else {
+                    alert('Error: ' + result.detail);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error casting vote');
+            }
+        }
+
+        document.getElementById('voteForm').addEventListener('submit', submitVote);*/
+
+        document.addEventListener("DOMContentLoaded", function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const success = urlParams.get('success');
+                
+            if (success === 'true') {
+                alert("Login Successful!");
+            }
+            window.history.replaceState({},'',window.location.pathname);
+        });
+    </script>
+</body>
+</html>

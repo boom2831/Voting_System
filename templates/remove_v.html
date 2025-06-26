@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Remove Voter ID</title>
+</head>
+<body>
+    <div id="removeVoterId">
+        <center>
+            <h2>Remove Voter Registration</h2>
+            <form id="removeForm" method="post" action="/remove_voter">
+                <label for="VoterId">Voter ID:</label>
+                <input type="text" id="VoterId" name="VoterId" required><br><br>
+
+                <label for="VoterName">Full Name:</label>
+                <input type="text" id="VoterName" name="VoterName" required><br><br>
+
+                <button type="submit">Remove</button>
+            </form>
+        </center>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const remove = urlParams.get('remove');
+
+            if(remove === 'error'){
+                alert("Error Occurred During Deletion")
+            }
+
+            window.history.replaceState({}, '', window.location.pathname);
+        });
+    </script>
+</body>
+</html>

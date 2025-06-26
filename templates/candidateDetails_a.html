@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidate Details</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/images/lalala.avif');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .candidate-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .candidate-card {
+            position: relative;
+            width: 200px;
+            margin: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .candidate-card:hover {
+            transform: scale(1.05);
+        }
+
+        .candidate-photo {
+            width: 100%;
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .candidate-info {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .candidate-card:hover .candidate-info {
+            display: block;
+        }
+
+        .vote-button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .vote-button:hover {
+            background-color: #0056b3;
+        }
+
+        .register-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .register-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Candidate Details</h1>
+    <div class="candidate-container">
+        <div class="candidate-card">
+            <div class="candidate-photo" style="background-image: url('/static/images/C1.jpg');"></div>
+            <div class="candidate-info">
+                <p></p>
+                <p>Party A</p>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-photo" style="background-image: url('/static/images/C1.jpg');"></div>
+            <div class="candidate-info">
+                <p></p>
+                <p>Party B</p>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-photo" style="background-image: url('/static/images/C1.jpg');"></div>
+            <div class="candidate-info">
+                <p></p>
+                <p>Party C</p>
+            </div>
+        </div>
+
+        <div class="candidate-card">
+            <div class="candidate-photo" style="background-image: url('/static/images/C1.jpg');"></div>
+            <div class="candidate-info">
+                <p></p>
+                <p>Party D</p>
+            </div>
+        </div>
+    </div>
+
+    <button class="register-button" onclick="location.href='registerCandidate.html'">Register Candidate</button>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const stat = urlParams.get('regstat');
+
+            if (status === 'true') {
+                alert("Login Successful!");
+            }
+            else if(status === 'false'){
+                alert("Invalid Credentials! Please try again.");
+            }
+            else if(status === 'error'){
+                alert("An error occurred! Please try again.");
+            }
+            if(stat === 'success'){
+                alert("Candidate Registered Successfully!");
+            }
+            if(stat === 'exists'){
+                alert("Candidate Already Registered");
+            }
+            window.history.replaceState({},'',window.location.pathname);
+    });
+    </script>
+</body>
+</html>

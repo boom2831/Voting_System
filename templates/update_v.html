@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <title>Update Voter ID</title>
+</head>
+<body>
+    <div id="updateVoterId">
+        <center>
+            <h2>Update Voter ID</h2>
+            <form id="updateForm" method="post" action="/update_voter">
+                <label for="fullname">Full Name:</label>
+                <input type="text" id="fullname" name="fullname" required><br><br>
+
+                <label for="aadhaarNo">Aadhaar Number:</label>
+                <input type="text" id="aadhaarNo" name="aadhaarNo" required><br><br>
+
+                <label for="VoterId">Voter ID:</label>
+                <input type="text" id="VoterId" name="VoterId" required><br><br>
+
+                <label for="newAddress">New Address:</label>
+                <input type="text" id="newAddress" name="newAddress" required><br><br>
+
+                <label for="newPhone">New Phone No:</label>
+                <input type="text" id="newPhone" name="newPhone" required><br><br>
+
+                <label for="newEmail">New Email:</label>
+                <input type="text" id="newEmail" name="newEmail" required><br><br>
+
+
+                <button type="submit">Update</button>
+            </form>
+        </center>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const update = urlParams.get('update');
+
+            if(update === 'Error'){
+                alert("Error Occurred During Updation");
+            }
+            window.history.replaceState({},'',window.location.pathname);
+    });
+    </script>
+</body>
+</html>

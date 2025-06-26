@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Results</title>
+    <link rel="stylesheet" href="/static/css/styles.css"> <!-- Link to your CSS file -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 15px 0;
+            background-color: #4CAF50;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+        .results {
+            margin-top: 20px;
+        }
+        .candidate {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .candidate:last-child {
+            border-bottom: none;
+        }
+        .candidate h3 {
+            margin: 0;
+        }
+        .votes {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Voting System Results</h1>
+</header>
+
+<div class="container">
+    <h2>Election Results</h2>
+    <div class="results">
+        {% for candidate in candidates %}
+        <div class="candidate">
+            <h3>{{ candidate['Full_name'] }}</h3>
+            <p class="votes">Votes: {{ candidate['Vote_count'] }}</p>  
+        </div>
+        {% endfor %}
+    </div>
+    <h3>Total Votes: {{ total_votes }}</h3>
+</div>
+
+
+<footer>
+    <p>&copy; 2023 Voting System. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

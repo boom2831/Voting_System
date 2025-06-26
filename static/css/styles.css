@@ -1,0 +1,89 @@
+/* styles.css */
+/*body {
+    font-family: Arial, sans-serif;
+    background-image: url('lalala.avif'); // Path to your background image 
+    background-size: cover; // Cover the entire area 
+    background-position: center; //Center the image 
+    background-repeat: no-repeat; //Prevent repeating the image
+}*/
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('/static/images/lalala.avif'); /* Replace with your actual image path */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* styles.css */
+/* styles.css */
+#welcomePage {
+    text-align: center;
+    padding: 50px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Add padding below the welcome section on larger screens */
+@media (min-width: 768px) {
+    #welcomePage {
+        margin-bottom: 400px;
+    }
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background for modal */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 300px;
+    text-align: center;
+}
+
+/*button {
+    margin: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+}*/

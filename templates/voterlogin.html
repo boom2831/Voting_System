@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Login</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <div id="voterLogin">
+        <center>
+            <h2>Voter Login</h2>
+            <form id="voterLoginForm" method="post" action="/voter_login">
+                <label for="voterId"> Voter ID: </label>
+                <input type="text" id="voterId" name="voterId" required><br><br>
+
+                <label for="voterName"> Name: </label>
+                <input type="text" id="voterName" name="voterName" required><br><br>
+
+                <button id="form" type="submit"> Login </button>
+            </form>
+            <p>Not registered? <a href="/templates/register.html">Click here</a><br>
+                Update Voter Details<a href="/templates/update_v.html">Click here</a> <br>
+                Remove Voter <a href="/templates/remove_v.html">Click here</a></p> 
+                <div class="g-recaptcha" data-sitekey="6LdWCGwqAAAAAL1XqegZCOe0rMLsW62z3htG9BvE"></div><br>
+        </center>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(){
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const success = urlParams.get('success');
+            const update = urlParams.get('update');
+            const remove = urlParams.get('remove');
+            const voterid = urlParams.get('voterid');
+
+            if (status === 'success' && voterid) {
+                console.log("Voter ID:", voterid);
+                console.log("Status:", status);
+                alert(`Voter Successfully Registered!\nVoter ID: ${voterid}`);
+            }
+            if (success === 'false') {
+                alert("Login Unsuccessful! Invalid Credentials.");
+            }
+            if (success === 'error') {
+                alert("Error occurred during login.");
+            }
+            if(update === 'true'){
+                alert("Voter Details Updated Successfully");
+            }
+            if(remove === 'true'){
+                alert("Voter Deleted Successfully");
+            }
+            window.history.replaceState({},'',window.location.pathname);
+    });
+    </script>
+</body>
+</html>
