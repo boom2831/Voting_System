@@ -1,9 +1,9 @@
 # E-Voting Platform
 **Contributors:**  
-- Aniketh Chakravarthy S (1RVU23CSE057)  
-- Anoushka Pandey (1RVU23CSE065)  
-- Bhumika G (1RVU23CSE111)  
-- Bhuvana S (1RVU23CSE118)  
+- Aniketh Chakravarthy S 
+- Anoushka Pandey
+- Bhumika G 
+- Bhuvana S  
 
 ---
 
