@@ -45,9 +45,9 @@ Traditional election methods:
 ## 🛠️ Tech Stack (assumed/optional based on context)
 
 - **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** Python/Node.js  
-- **Database:** MySQL / Firebase / MongoDB  
-- **Security:** Hashing, OTP verification, SSL
+- **Backend:** Python 
+- **Database:** MySQL  
+- **Security:** Hashing
 
 ---
 
