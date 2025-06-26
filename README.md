@@ -1,4 +1,4 @@
-# E-Voting Platform – Mini Project
+# E-Voting Platform
 **Contributors:**  
 - Aniketh Chakravarthy S (1RVU23CSE057)  
 - Anoushka Pandey (1RVU23CSE065)  
